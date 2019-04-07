@@ -18,6 +18,42 @@ uvicorn app.main:app --reload
 docker run --rm -p 8000:8000 -d askinozgur/ua-parser-api
 ```
 
+### Request Examples
+Curl Example
+```bash
+curl -X GET "http://localhost:8000/detect?user_agent=Mozilla%2F5.0%20%28X11%3B%20Linux%20x86_64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F73.0.3683.103%20Safari%2F537.36" -H "accept: application/json"
+```
+
+Request URL
+```
+http://localhost:8000/detect?user_agent=Mozilla%2F5.0%20%28X11%3B%20Linux%20x86_64%29%20AppleWebKit%2F537.36%20%28KHTML%2C%20like%20Gecko%29%20Chrome%2F73.0.3683.103%20Safari%2F537.36
+```
+
+Response
+```json
+{
+  "user_agent": {
+    "family": "Chrome",
+    "major": "73",
+    "minor": "0",
+    "patch": "3683"
+  },
+  "os": {
+    "family": "Linux",
+    "major": null,
+    "minor": null,
+    "patch": null,
+    "patch_minor": null
+  },
+  "device": {
+    "family": "Other",
+    "brand": null,
+    "model": null
+  },
+  "string": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.103 Safari/537.36"
+}
+```
+
 
 ### Interactive API docs
 
